@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    p {
+        font-size: 50
+    }
+</style>
+<body>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+        const repoNames = JSON.parse('{{ repoNames }}');
+        const openCounts = JSON.parse('{{ openCounts }}');
+        const mergedCounts = JSON.parse('{{ mergedCounts }}');
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        Chart.defaults.font.size = 21
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: repoNames,
+                datasets: [{
+                    label: 'Open Pull Requests',
+                    data: openCounts,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Merged Pull Requests',
+                    data: mergedCounts,
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }],
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
