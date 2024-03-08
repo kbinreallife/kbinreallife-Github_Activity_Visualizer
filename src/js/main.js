@@ -20,7 +20,7 @@ const openPullRequests = filterPullRequestByState(pullRequestRawData, 'open');
 
 // Filter pull requests created within the last 14 days
 const twoWeeksAgo = new Date();
-twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 30);
+twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
 const recentPullRequests = openPullRequests.filter(pr => new Date(pr.created_at) > twoWeeksAgo);
 
 // Filter merged pull requests
