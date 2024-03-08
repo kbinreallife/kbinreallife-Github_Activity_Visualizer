@@ -1,10 +1,6 @@
 # kbinreallife-Github_Activity_Visualizer
 A Github Activity Visualization Project
 
-# github_visualization_container
-
-A Github Activity Visualization Project
-
 ## Using this repository
 
 - Clone the repo
